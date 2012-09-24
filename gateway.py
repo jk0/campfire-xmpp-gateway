@@ -77,6 +77,7 @@ class CampfireXmppGateway(sleekxmpp.ClientXMPP):
         if user == self.cf_real_name:
             return
 
+        response = None
         if message.is_joining():
             response = "[%s entered the room]" % user
         elif message.is_leaving():
@@ -94,7 +95,8 @@ class CampfireXmppGateway(sleekxmpp.ClientXMPP):
         elif message.is_topic_change():
             response = "[%s changed topic to '%s']" % (user, message.body)
 
-        self.campfire_send_message(response)
+        if response:
+            self.campfire_send_message(response)
 
 
 if __name__ == "__main__":
