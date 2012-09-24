@@ -101,7 +101,7 @@ class CampfireXmppGateway(sleekxmpp.ClientXMPP):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                         format="%(levelname)-8s %(message)s")
 
     gateway = CampfireXmppGateway()
