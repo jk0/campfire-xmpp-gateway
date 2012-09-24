@@ -70,7 +70,10 @@ class CampfireXmppGateway(sleekxmpp.ClientXMPP):
         self.send_message(self.xmpp_recipient, message)
 
     def campfire_process_incoming(self, message):
-        user = message.user.name
+        user = None
+        if message.user:
+            user = message.user.name
+
         if user == self.cf_real_name:
             return
 
