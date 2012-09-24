@@ -42,6 +42,7 @@ class CampfireXmppGateway(sleekxmpp.ClientXMPP):
         self.cf_room = None
         self.cf_stream = None
 
+        self.xmpp_username = self.xmpp_username + "/Campfire"
         sleekxmpp.ClientXMPP.__init__(self, self.xmpp_username,
                                       self.xmpp_password)
 
